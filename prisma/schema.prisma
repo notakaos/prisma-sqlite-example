@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 記事
+model Post {
+  // 記事ID (cuid形式)
+  id        String  @id @default(cuid())
+  // 記事タイトル
+  title     String
+  // 記事本文
+  content   String?
+  // 公開状態(0:非公開、1:公開)
+  published Boolean @default(false)
+  // 著者ID
+  authorId  String?
+  // リレーション
+  author    User?   @relation(fields: [authorId], references: [id])
+
+  @@map(name: "post")
+}
+
+// ユーザー
+model User {
+  // ユーザーID(cuid形式)
+  id    String  @id @default(cuid())
+  // メールアドレス
+  email String  @unique
+  // 指名
+  name  String?
+  // リレーション
+  posts Post[]
+
+  @@map(name: "user")
+}

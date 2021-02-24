@@ -5,20 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
-      "runtimeVersion": "15",
+      "type": "node",
+      "runtimeVersion": "15.10.0",
       "request": "launch",
       "name": "Launch Program",
+      "preLaunchTask": "Compile TypeScript",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/src/index.ts",
+      "program": "${file}",
       "outFiles": [
         "${workspaceFolder}/dist/*.js"
       ],
       // ref. https://gist.github.com/cecilemuller/2963155d0f249c1544289b78a1cdd695
       "runtimeExecutable": "node",
-      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "runtimeArgs": ["--nolazy"],
       "cwd": "${workspaceRoot}",
       "internalConsoleOptions": "openOnSessionStart",
       "sourceMaps": true,

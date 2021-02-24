@@ -30,3 +30,25 @@ npm install -D eslint typescript @typescript-eslint/parser @typescript-eslint/es
 touch tsconfig.eslint.json
 touch .eslintrc.js
 ```
+
+## Prisma + sqlite 導入
+
+* 参考: https://www.prisma.io/
+* 参考: https://www.prisma.io/docs/concepts/database-connectors/sqlite
+* 参考: https://github.com/prisma/prisma
+* VSCode Plugin: https://marketplace.visualstudio.com/items?itemname=prisma.prisma
+
+```sh
+npm install prisma -D
+npx prisma init
+vim prisma/schema.prisma
+
+# 初期 migration ファイル作成
+npx prisma migrate dev --name init --preview-feature
+
+# prettier の prisma ファイル対応
+npm i -D prettier-plugin-prisma
+
+# prisma client のインストール
+npm install @prisma/client
+```
