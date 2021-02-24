@@ -17,4 +17,16 @@ npm init -f
 git init
 git add .
 git commit -m "first commit"
+
+npm install -D typescript @types/node@14
+npm install -D ts-node
+npm install -D rimraf npm-run-all
+```
+
+## ESLint & Prettier 導入
+
+```sh
+npm install -D eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
+touch tsconfig.eslint.json
+touch .eslintrc.js
 ```
