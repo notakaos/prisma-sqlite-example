@@ -36,6 +36,7 @@ touch .eslintrc.js
 * 参考: https://www.prisma.io/
 * 参考: https://www.prisma.io/docs/concepts/database-connectors/sqlite
 * 参考: https://github.com/prisma/prisma
+* 参考: https://www.prisma.io/docs/concepts/overview/what-is-prisma
 * VSCode Plugin: https://marketplace.visualstudio.com/items?itemname=prisma.prisma
 
 ```sh
