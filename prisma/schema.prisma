@@ -31,13 +31,24 @@ model Post {
 // ユーザー
 model User {
   // ユーザーID(cuid形式)
-  id    String  @id @default(cuid())
+  id      String   @id @default(cuid())
   // メールアドレス
-  email String  @unique
+  email   String   @unique
   // 指名
-  name  String?
+  name    String?
   // リレーション
-  posts Post[]
+  posts   Post[]
+  profile Profile?
 
   @@map(name: "user")
+}
+
+// Profile
+model Profile {
+  id     String  @id @default(cuid())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId String  @unique
+
+  @@map(name: "profile")
 }

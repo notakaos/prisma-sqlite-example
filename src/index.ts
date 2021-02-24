@@ -9,9 +9,12 @@ async function prepare(): Promise<void> {
         name: 'Alice',
         email: 'alice@example.com',
         posts: {
-          create: { title: 'Hello, World'},
+          create: { title: 'Hello, World' },
+        },
+        profile: {
+          create: { bio: 'Lorem Ipsum' }
         }
-      }
+      },
     })
   }
 }
@@ -24,7 +27,10 @@ async function main(): Promise<void> {
 }
 
 main()
-  .catch((e) => { throw e })
+  .catch((e) => {
+    throw e
+  })
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   .finally(async () => {
     await prisma.$disconnect()
   })
