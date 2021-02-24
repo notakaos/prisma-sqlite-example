@@ -1,0 +1,2 @@
+# prisma-sqlite-exmaple
+
